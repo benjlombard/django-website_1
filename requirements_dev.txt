@@ -1,0 +1,5 @@
+-r requirements_common.txt
+selenium
+django-debug-toolbar
+coverage
+ipython
