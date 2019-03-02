@@ -13,9 +13,25 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.conf import settings
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+
+    path('admin/',include('admin_honeypot.urls', namespace='admin_honeypot')),
+    #path("@yce3234n(g_^=f7f6e58dha35hyv%1eyx41y=f%x7s$2@$rry/",'admin.site.urls'),
+    path('secret', admin.site.urls),
+
+    path('blog/', include('blog.urls', namespace='blog')),
+    # path('user/',include('user.urls',namespace='user')),
+    path('mailinglist/', include('mailinglist.urls', namespace='mailinglist')),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns = [
+                      path('__debug__/', include(debug_toolbar.urls)),
+                  ] + urlpatterns

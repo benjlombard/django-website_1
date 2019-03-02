@@ -1,3 +1,12 @@
 django
 psycopg2
-
+djangorestframework
+markdown
+django-filter
+django-crispy-forms
+django-markdownify
+django-axes
+django-admin-honeypot
+argon2-cffi
+celery
+redis

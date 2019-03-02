@@ -2,4 +2,10 @@
 selenium
 django-debug-toolbar
 coverage
+django-jenkins
 ipython
+pep8
+pyflakes
+pylint
+flake8
+
