@@ -5,6 +5,7 @@ from .models import Post
 # Register your models here.
 
 
+#coucou les amis
 
 #@admin.register(Post,PostAdmin)
 class PostAdmin(admin.ModelAdmin):
