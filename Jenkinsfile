@@ -6,29 +6,20 @@ pipeline {
         checkout scm
       }
     }
-    stage('Build environment') {
-      steps {
-        echo 'Building virtualenv'
-        sh ''' conda create --yes -n ${BUILD_TAG} python
-                        source activate ${BUILD_TAG}
-                        pip install -r requirements/dev.txt
-                    '''
-      }
-    }
     stage('Static code metrics') {
       post {
         always {
           step([$class: 'CoberturaPublisher',
-                                             autoUpdateHealth: false,
-                                             autoUpdateStability: false,
-                                             coberturaReportFile: 'reports/coverage.xml',
-                                             failNoReports: false,
-                                             failUnhealthy: false,
-                                             failUnstable: false,
-                                             maxNumberOfBuilds: 10,
-                                             onlyStable: false,
-                                             sourceEncoding: 'ASCII',
-                                             zoomCoverageChart: false])
+                                                       autoUpdateHealth: false,
+                                                       autoUpdateStability: false,
+                                                       coberturaReportFile: 'reports/coverage.xml',
+                                                       failNoReports: false,
+                                                       failUnhealthy: false,
+                                                       failUnstable: false,
+                                                       maxNumberOfBuilds: 10,
+                                                       onlyStable: false,
+                                                       sourceEncoding: 'ASCII',
+                                                       zoomCoverageChart: false])
 
         }
 
@@ -112,7 +103,7 @@ pipeline {
 
     failure {
       emailext(subject: "FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]'", body: """<p>FAILED: Job '${env.JOB_NAME} [${env.BUILD_NUMBER}]':</p>
-                               <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""", recipientProviders: [[$class: 'DevelopersRecipientProvider']])
+                                     <p>Check console output at &QUOT;<a href='${env.BUILD_URL}'>${env.JOB_NAME} [${env.BUILD_NUMBER}]</a>&QUOT;</p>""", recipientProviders: [[$class: 'DevelopersRecipientProvider']])
 
     }
 
