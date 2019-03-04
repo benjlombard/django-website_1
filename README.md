@@ -7,3 +7,4 @@ fatal: [default]: FAILED! => {"failed": true, "msg": "Failed to set permissions 
 => install acl : sudo apt install acl
 
 test webhook github => execute automatically build jenkins ansible
+
