@@ -8,3 +8,4 @@ fatal: [default]: FAILED! => {"failed": true, "msg": "Failed to set permissions 
 
 test webhook github => execute automatically build jenkins ansible
 
+nouveau test
