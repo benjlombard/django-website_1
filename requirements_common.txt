@@ -10,3 +10,6 @@ django-admin-honeypot
 argon2-cffi
 celery
 redis
+fabric3
+twilio
+

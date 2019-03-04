@@ -33,7 +33,8 @@ INSTALLED_APPS = [
     'mailinglist',
     'crispy_forms',
     'axes',
-    'celery'
+    'celery',
+    'fabric'
 
 ]
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

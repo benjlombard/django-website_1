@@ -8,4 +8,4 @@ pep8
 pyflakes
 pylint
 flake8
-
+ansible
