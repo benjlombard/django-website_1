@@ -9,6 +9,10 @@ INSTALLED_APPS = [
     'django_jenkins',
 ] + INSTALLED_APPS
 
+MIDDLEWARE =[
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+] + MIDDLEWARE
+
 TEMPLATE_DEBUG = True
 LOGGING = {
     'version': 1,
