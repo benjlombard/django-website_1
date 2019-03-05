@@ -12,4 +12,7 @@ celery
 redis
 fabric3
 twilio
+elasticsearch
+elasticsearch-dsl
+
 

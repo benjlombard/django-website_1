@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.urls import reverse
 # Create your models here.
 
+from .elastic_search_connection import PostsIndex
+
 class PublishedManager(models.Manager):
     def get_queryset(self):
         return super(PublishedManager,self).get_queryset().filter(status='published')
@@ -27,6 +29,18 @@ class Post(models.Model):
     #objects = models.Manager()
     published = PublishedManager()
 
+    # indexing method of Question model
+    def indexing(self):
+        obj = PostsIndex(
+            meta={
+                'id': self.id
+            },
+            author=self.author,
+            publish=self.publish,
+            body=self.body
+        )
+        obj.save()
+        return obj.to_dict(include_meta=True)
 
     class Meta:
         ordering = ('-publish',)
