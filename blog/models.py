@@ -29,13 +29,13 @@ class Post(models.Model):
     #objects = models.Manager()
     published = PublishedManager()
 
-    # indexing method of Question model
+    # indexing method of Post model
     def indexing(self):
         obj = PostsIndex(
             meta={
                 'id': self.id
             },
-            author=self.author,
+            title=self.title,
             publish=self.publish,
             body=self.body
         )

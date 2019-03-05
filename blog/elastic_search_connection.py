@@ -7,10 +7,11 @@ connections.create_connection()
 
 # defines what needs to index in elastic search
 class PostsIndex(DocType):
-    author = Text()
+    #author = Text()
+    title = Text()
     body = Text()
     publish = Date()
 
-    class Meta:
+    class Index:
         # name of index. Will be used in search
-        index = 'posts-index'
+        name = 'posts-index'
